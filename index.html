@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Braique & Entaire</title>
+    <!-- Add regular CSS -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Braique and Entaire is your one stop shop for nefarious goods. We bring the black market to you!">
+    <meta name="keywords" content="robbery, shoplifting, breaking, entering, assault, battery, hitman, criminal, dark web">
+    <link rel="stylesheet" type="text/css" href="/style.css"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Pinyon+Script">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <!-- Add jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script>
+
+        imageIdx = 0;
+
+        images = ["halloween.jpg", 
+                  "crowbar.jpg", 
+                  "moneybag.jpg"
+                  ];
+
+        function fadeTimeout() {
+            setTimeout(fadeSlide, 5000);
+        }
+
+        function fadeSlide() 
+        { 
+                console.log("running slideshow");
+                $(".slider img").fadeOut(1500, newSlide);
+        }
+
+        function newSlide() 
+        {
+                if(imageIdx == (images.length - 1))
+                        imageIdx = 0;
+                else {
+                        imageIdx++;
+                }
+
+                $(".slider img").attr("src", "banners/" + images[imageIdx]);
+                $(".slider img").fadeIn(1500, fadeTimeout);
+
+        }
+
+        $(document).ready(function() {
+                fadeSlide();
+        });
+
+    </script>
+
+
+</head>
+<body>
+
+    <div class="page-header">
+      <a href="/">
+          <img class="logo" src="/logo.png"></img>
+      </a>
+
+      <div class="categories">
+        <a href="clothing.html">Clothing</a>
+        <a href="tools.html">Tools</a>
+        <a href="gadgets.html">Gadgets</a>
+        <a href="misc.html">Miscellaneous</a>
+      </div>
+ 
+    </div>
+
+    <img class="hamburger" src="menu.png">
+
+    <div class="hide">
+      <ul class="nav">
+          <li><a href="faq.html"><div>FAQ</div></a></li>
+          <li><a href="career.html"><div>Careers</div></a></li>
+          <li><a href="testimonials.html"><div>Testimonials</div></a></li>
+          <li><a href="contact.html"><div>Contact</div></a></li>
+      </ul>
+  </div>
+
+    <!-- Slider Container -->
+    <div class="slider">
+      <img class="slide" src="/banners/halloween.jpg"></img>
+    </div>
+
+    <h1> Bringing the black market to you.</h1>
+
+    <div class="body">
+        The premiere shop for all of your most nefarious needs. 
+        Braique & Entaire promises to provide high quality products with discrete packaging.
+        At Braique & Entaire, we respect your right as a businessperson to privacy. That's why we don't ask for any
+        idenifying information. Only your credit card information and social security number. Always.
+    </div>
+
+    <div class="featured-section">
+      <a href="tools.html" class="img-box">
+        <div class="img-label">Shop Tools</div>
+      </a>
+      <a href="gadgets.html" class="img-box" id="gadgets">
+        <div class="img-label">Shop Gadgets</div>
+      </a>
+      <a href="clothing.html" class="img-box" id="clothing">
+        <div class="img-label">Shop Clothing</div>
+      </a>
+    </div>
+
+
+    <div class = "footer">
+        <div class="footer-content">
+          <img src="/footer-logo.png"/>
+        </div>
+        <div class = "footer-content">
+
+            <a href="faq.html">Questions</a>
+            <a href="contact.html">Contact Us</a>
+            <a href="career.html">Careers</a>
+            <a href="testimonials.html">Testimonials</a>
+
+            <p class="footer-copyright">&copy Copyright? Why do you care? What are you, a cop or something?</p>
+
+        </div>
+    </div>
+
+
+</body>
+</html>

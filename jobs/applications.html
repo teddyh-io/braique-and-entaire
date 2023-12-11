@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+		<meta charset="utf-8">
+		<title>Heist Hunter - Braique & Entaire</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+		<link rel="stylesheet" href="/jobs/style.css">
+</head>
+<body>
+
+    <div class="page-header">
+        <a href="/jobs">
+            <img class="logo" src="/jobs/jobs-logo.png"></img>
+        </a>
+  
+        <div class="categories">
+          <a href="">Add a new listing</a>
+          <a href="/">Back to Store</a>
+        </div>
+    </div>
+    <div class="container">
+        <div class = "application">Job Application Form</div>
+        <form id="applicationForm" action="/submit" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="fullName">Name:</label>
+                <input type="text" id="fullName" name="fullName" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Phone:</label>
+                <input type="tel" id="phone" name="phone" required>
+            </div>
+
+            <div class="form-group">
+                <label for="address">Address:</label>
+                <textarea id="address" name="address" rows="3" required></textarea>
+            </div>
+
+            <div class="form-group">
+                <label>How did you hear about Braique&Entaire?</label>
+                <div>
+                    <input type="radio" id="online" name="findOut" value="online" required>
+                    <label for="online">Search on Google</label>
+
+                    <input type="radio" id="friend" name="findOut" value="friend" required>
+                    <label for="friend">Recommend By Friends</label>
+
+                    <input type="radio" id="enemy" name="findOut" value="enemy" required>
+                    <label for="enemy">DeRecommend By Enemy</label>
+
+                    <input type="radio" id="other" name="findOut" value="other" required onclick="toggleOtherText()">
+                    <label for="other">Other</label>
+
+                    <textarea id="otherText" name="otherText" style="display: none;"></textarea>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="resume">Resume (PDF only):</label>
+                <input type="file" id="resume" name="resume" accept=".pdf" required>
+            </div>
+
+            <div class="form-group">
+                <label for="additionalInfo">Additional Information:</label>
+                <textarea id="additionalInfo" name="additionalInfo" rows="5"></textarea>
+            </div>
+
+            <button type="button" onclick="redirect()">Submit Application</button>
+        </form>
+    </div>
+</body>
+<script>
+    function toggleOtherText() {
+        var otherText = document.getElementById('otherText');
+        otherText.style.display = otherText.style.display === 'none' ? 'block' : 'none';
+    }
+</script>
+</html>

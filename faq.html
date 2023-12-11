@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>FAQ</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Braique and Entaire is your one stop shop for nefarious goods. We bring the black market to you!">
+        <meta name="keywords" content="robbery, shoplifting, breaking, entering, assault, battery, hitman, criminal, dark web">
+        <link href="style.css" rel="stylesheet">
+        <link rel="icon" type="image/x-icon" href="/favicon.ico">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Pinyon+Script">
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    </head>
+    <body>
+        <div class="page-header">
+            <a href="/">
+                <img class="logo" src="/logo.png"></img>
+            </a>
+            <div class="categories">
+                <a href="clothing.html">Clothing</a>
+                <a href="tools.html">Tools</a>
+                <a href="gadgets.html">Gadgets</a>
+                <a href="misc.html">Miscellaneous</a>
+              </div>
+        </div>
+      
+        <img class="hamburger" src="menu.png">
+      
+        <div class="hide">
+            <ul class="nav">
+                <li><a href="faq.html"><div>FAQ</div></a></li>
+                <li><a href="career.html"><div>Careers</div></a></li>
+                <li><a href="testimonials.html"><div>Testimonials</div></a></li>
+                <li><a href="contact.html"><div>Contact</div></a></li>
+            </ul>
+        </div>
+
+        <h1> FAQ </h1>
+        <div class="faq-intro">
+            Welcome to the Braique & Entaire FAQ page. We're here to answer your questions and provide you with all the information you need. If you can't find the answer you're looking for, please don't hesitate to get in touch with our friendly customer support team.
+            Believe it or not we are always here to solve your problem... or solve the person who has a problem.
+        </div>
+        <!-- <p style="background-color: black; color: #fff; border-radius: 15px; 
+        padding: 10px 20px; display: inline-block; margin-left: 7%; margin-bottom: 20px;
+        font-size: larger;position: relative; top: 20px; left: 20px; bottom: 20px;">Frequently Asked:</p> -->
+
+        <div class="photo-container">
+            <div class="photo-item">
+                <img src="/images/incognito.png" alt="Photo 1">
+                <p>Is this legal?</p>
+            </div>
+            <div class="photo-item">
+                <img src="/images/exit.png" alt="Photo 2">
+                <p>Where are you based?</p>
+            </div>
+            <div class="photo-item">
+                <img src="/images/box.png" alt="Photo 3">
+                <p>My product arrived with an issue.<br> What should I do?</p>
+            </div>
+        </div>
+
+        <div class="question-box question1">
+            <div class="question" onclick="toggleAnswer('question1')">Q: Is it legal?</div>
+            <div class="answer" id="answer1"><br>-A: Yes. Please stop asking this.</div>
+        </div>
+        <div class="question-box question2">
+            <div class="question" onclick="toggleAnswer('question2')">Q: Where are you based?</div>
+            <div class="answer" id="answer2"><br>-A: Shut up, what are you a cop?</div>
+        </div>
+        <div class="question-box question3">
+            <div class="question" onclick="toggleAnswer('question3')">Q: My product arrived with an issue. What should I do?</div>
+            <div class="answer" id="answer3"><br>-A: Just sit tight, we'll come by and pay you a visit. <br>(No need to tell us the address, we know where you live.)</div>
+        </div>
+        <div class="question-box question4">
+            <div class="question" onclick="toggleAnswer('question4')">Q: What are your business hours?</div>
+            <div class="answer" id="answer4"><br>-A: 24/7 service with staff all over the world.</div>
+        </div>
+        <div class="question-box question5">
+            <div class="question" onclick="toggleAnswer('question5')">Q: Are my personal and payment details secure with Braique & Entaire?</div>
+            <div class="answer" id="answer5"><br>-A: Yes. Your security is our top priority.<br> We will never steal your infomation.</div>
+        </div>
+
+        
+        <div class = "footer">
+            <div class="footer-content">
+              <img src="/footer-logo.png"/>
+            </div>
+            <div class = "footer-content">
+    
+                <a href="faq.html">Questions</a>
+                <a href="contact.html">Contact Us</a>
+                <a href="career.html">Careers</a>
+                <a href="testimonials.html">Testimonials</a>
+    
+                <p class="footer-copyright">&copy Copyright? Why do you care? What are you, a cop or something?</p>
+    
+            </div>
+        </div>
+
+    <script>
+        function toggleAnswer(questionId) {
+            let answer = $("#answer" + questionId.slice(-1));
+            answer.fadeToggle();
+    }
+    </script>
+</html>
