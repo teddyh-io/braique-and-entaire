@@ -1,130 +1,140 @@
 <?php
-    session_start();
+   session_start();
 
-    // Check if the form is submitted
-    if (isset($_POST['submit'])) {
-        // login credentials
-        $server = "localhost";
-			$userid = "uscgzjcvbt0d7";
-			$pw = "braiqueenter";
-			$db= "db0cigaeahy23l";
 
-        // Create connection
-        $conn = mysqli_connect($server, $userid, $pw, $db);
-        // Check connection
-        if (!$conn) {
-            die("Connection failed: " . mysqli_connect_error());
-        }
+   // Check if the form is submitted
+   if (isset($_POST['submit'])) {
+       // login credentials
+       $server = "localhost";
+           $userid = "uscgzjcvbt0d7";
+           $pw = "braiqueenter";
+           $db= "db0cigaeahy23l";
 
-        $sql = "SELECT * FROM users";
-        $result = mysqli_query($conn, $sql);
 
-        //echo "about to enter if statement <br>";
+       // Create connection
+       $conn = mysqli_connect($server, $userid, $pw, $db);
+       // Check connection
+       if (!$conn) {
+           die("Connection failed: " . mysqli_connect_error());
+       }
 
-        if (mysqli_num_rows($result) > 0) {
-            // use POST to get data
-            $inputUsername = $_POST["username"];
-            $inputPassword = $_POST["password"];
-            
-            // output data of each row
-            while($row = mysqli_fetch_assoc($result)) {
-                if ($row["username"] == $inputUsername && $row["password"] == $inputPassword) {
-                    // set session info 
-                    $_SESSION["loggedin"] = true;
-                    $_SESSION["firstName"] = $row["firstName"];
-                    $_SESSION["lastName"] = $row["lastName"];
-                    $_SESSION["username"] = $row["username"];
-                    $_SESSION["email"] = $row["email"];
-                    $_SESSION["password"] = $row["password"];
-                    $_SESSION["type"] = $row["type"];
+
+       $sql = "SELECT * FROM users";
+       $result = mysqli_query($conn, $sql);
+
+
+       //echo "about to enter if statement <br>";
+
+
+       if (mysqli_num_rows($result) > 0) {
+           // use POST to get data
+           $inputUsername = $_POST["username"];
+           $inputPassword = $_POST["password"];
+          
+           // output data of each row
+           while($row = mysqli_fetch_assoc($result)) {
+               if ($row["username"] == $inputUsername && $row["password"] == $inputPassword) {
+                   // set session info
+                   $_SESSION["loggedin"] = true;
+                   $_SESSION["firstName"] = $row["firstName"];
+                   $_SESSION["lastName"] = $row["lastName"];
+                   $_SESSION["username"] = $row["username"];
+                   $_SESSION["email"] = $row["email"];
+                   $_SESSION["password"] = $row["password"];
+                   $_SESSION["type"] = $row["type"];
 ?>
-                    <script type="text/javascript">
-                        // go to listings page
-                        window.location = "/jobs";
-                    </script>
-<?php    
-                }
-            }
-            
-            // if the user is not found in the DB
-            $invalidAlert = "<div class='error'>";
-            $invalidAlert .= "<p>User not found, please try again</p>";
-            $invalidAlert .= "</div>";
-            echo $invalidAlert;
+                   <script type="text/javascript">
+                       // go to listings page
+                       window.location = "/jobs";
+                   </script>
+<?php   
+               }
+           }
+          
+           // if the user is not found in the DB
 
-        } 
-        else {
-            echo "<div style='background-color:red'>No users in DB yet</div>";
-        }
 
-        mysqli_close($conn);
+           echo "<script>alert('User not found, please try again');</script>";
 
-    
-    }
+
+       }
+       else {
+           echo "<div style='background-color:red'>No users in DB yet</div>";
+       }
+
+
+       mysqli_close($conn);
+
+
+  
+   }
 ?>
 
-<!DOCTYPE html>
-<head>
-    <title>Login</title>
 
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js" 
-    integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" 
-    crossorigin="anonymous"></script>
+<!doctype html>
+<html>
+   <head>
+       <meta charset="utf-8">
+       <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <style>
-        form {
-            text-align: center;
-        }
 
-        a {
-            border: 1px solid black;
-            padding: 8px;
-            background-color: lightgray;
-            text-decoration: none;
-        }
-        a:hover{
-            background-color: gray;
-        }
-
-        .error {
-            background-color: red;
-            padding: 10px;
-            margin: 30px;
-            margin: auto;
-        }
-
-    </style>
-
-</head>
+       <title>Login</title>
+       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+       <link rel="stylesheet" href="/jobs/style.css">
+   </head>
 <body>
-    <h1>Login</h1>
+   <div class="page-header">
+     <a href="/jobs">
+         <img class="logo" src="/jobs/jobs-logo.png"></img>
+     </a>
 
-    <form onsubmit="return validate(event)" action="login.php" method="post">
-        <label for="username">Username</label>
-        <input type="text" name="username" id="username">
 
-        <label for="password">Password</label>
-        <input type="password" name="password" id="password">
+     <div class="categories">
+       <a href="/" class="create-listing button">Back to Store</a>
+     </div>
+   </div>
 
-        <input type="submit" name="submit">
-    </form>
 
-    <a href="register.php">Register</a>
+   <div class="login-container">
+   <h1 class="login-header">Login</h1>
+   <form onsubmit="return validate(event)" action="login.php" method="post">
+       <label for="username">Username</label>
+       <input type="text" name="username" id="username">
 
-    <script>
-        // validate form data
-        function validate(event) {
-            // check that no field is blank
-            if (($("#username").val() == "") || ($("#password").val() == "")) {
-                // replace the alert with something more elegant
-                alert("please enter a username and password!");
-                return false;
-            }
 
-            return true;
-        }
+       <label for="password">Password</label>
+       <input type="password" name="password" id="password">
 
-    </script>
+
+       <input class="btn-apply" type="submit" name="submit">
+   </form>
+   <a class="login-registerLink" href="register.php">Not a member yet? Register</a>
+
+
+</div>
+
+
+
+
+   <script>
+       // validate form data
+       function validate(event) {
+           // check that no field is blank
+           if (($("#username").val() == "") || ($("#password").val() == "")) {
+               // replace the alert with something more elegant
+               alert("please enter a username and password!");
+               return false;
+           }
+
+
+           return true;
+       }
+
+
+   </script>
+
+
 
 
 </body>
+
