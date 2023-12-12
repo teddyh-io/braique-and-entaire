@@ -52,21 +52,14 @@
            }
           
            // if the user is not found in the DB
-
-
            echo "<script>alert('User not found, please try again');</script>";
-
 
        }
        else {
-           echo "<div style='background-color:red'>No users in DB yet</div>";
+           echo "<script>alert('No users in DB yet');</script>";
        }
 
-
        mysqli_close($conn);
-
-
-  
    }
 ?>
 
@@ -121,8 +114,7 @@
        function validate(event) {
            // check that no field is blank
            if (($("#username").val() == "") || ($("#password").val() == "")) {
-               // replace the alert with something more elegant
-               alert("please enter a username and password!");
+               alert("Error: please enter both a username and a password.");
                return false;
            }
 

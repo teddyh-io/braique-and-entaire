@@ -77,7 +77,7 @@
 
  <div class="form-container">
                <strong>Create a new listing:</strong><br>
-               <form action="add_job.php" method="post">
+               <form onsubmit="return validate()" action="add_job.php" method="post">
                        <div class="form-element">
                                Job Title: <input type="text" name="jobTitle" class="jobTitle">
                        </div>
@@ -94,7 +94,7 @@
                                Qualifications:
                                <img id="generateTextBox" onclick="addBox()" src="/jobs/plusbutton.png">
                                <div id="quals-container">
-                                       <div id="qual">1:<nobrsp><input type="text" name="qual1"></div>
+                                       <div id="qual-div">1:<nobrsp><input type="text" name="qual1" class="qual"></div>
                                </div>
                        </div>
                        <br>
@@ -171,7 +171,13 @@
    });
  });
 
-
+ $("#user-message").keyup(function(event) {
+        if (event.keyCode === 13) {
+                console.log("yo");
+            sendMessage();
+        }
+    });
+    
    var chatLog = "";
    function sendMessage() {
    var userMessage = $('#user-message').val();
@@ -214,6 +220,19 @@
 
 
        <script>
+                // ensure that the user has entered something in every field of the new listing form
+                function validate() {
+                        // check that no field is blank
+                        if (($(".jobTitle").val() == "") || ($(".description").val() == "")
+                         || ($(".pay").val() == "") || ($(".location").val() == "")
+                         || ($(".qual").val() == "")) {
+                                alert("Error: all fields must be completed to make a new listing.");
+                                return false;
+                        }
+
+                        return true;
+                }
+
                //add more qualification input boxes
                var count = 1;
                function addBox() {
@@ -221,10 +240,10 @@
                        {
                                count ++;
                                // Create a new input element
-                               var inputElement = $("<input>").attr("type", "text").attr("name", ("qual" + count));
+                               var inputElement = $("<input>").attr("type", "text").attr("name", ("qual" + count)).attr("class", "qual");
                                // Append the input element to the form
                                var qualContainer = $("#quals-container");
-                               qualContainer.append("<div id='qual'>" + count + ": ");
+                               qualContainer.append("<div id='qual-div'>" + count + ": ");
                                qualContainer.append(inputElement);
                                qualContainer.append("</div>");
                                if (count == 10)

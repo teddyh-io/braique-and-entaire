@@ -46,6 +46,7 @@ li
    right: 0;
    bottom: 0;
    margin: auto;
+   overflow: scroll;
 }
 
 
@@ -173,6 +174,7 @@ hr.solid {
    width: 50%;
    padding: 20px;
    background-color: #fff;
+   overflow: scroll;
  }
 
 
@@ -244,7 +246,7 @@ hr.solid {
  color: white;
  padding: 1em 1.5em 1em 1.5em;
  border-radius: 30px;
- width: 70%;
+ max-width: 70%;
  margin-top: 1em;
 }
 
@@ -280,7 +282,7 @@ textarea {
  border-radius: 4px;
  box-sizing: border-box;
  margin-bottom: 1em;
- font: sans-ser
+ font-family: Arial, Helvetica, sans-serif;
 }
 
 
@@ -364,7 +366,7 @@ label {
 }
 
 
-#qual {
+#qual-div {
  display:inline;
 }
 
@@ -398,7 +400,6 @@ label {
 
 
 .popup .close {
- font-style: underline;
  font-size: 16px;
  color: #444;
 }

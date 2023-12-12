@@ -31,10 +31,17 @@
        <input type="text" placeholder="Last" name="lastName" class="field-name" id="lastName"> <br><br>
 
 
-       <label for="type">Account type</label> <br>
-       <label for="standard">Standard</label><input type="radio" name="type" value="standard" id="standard"> <br>
-       <label for="gold">Gold</label><input type="radio" name="type" value="gold" id="gold"> <br>
-       <label for="business">Business</label><input type="radio" name="type" value="business" id="business"> <br><br>
+       <label for="type">Account type</label> <br><br>
+       <label for="standard">Standard</label><input type="radio" name="type" value="standard" id="standard">
+       <p>Our base level account for anyone seeking work in this industry.</p><br>
+       <label for="gold">Gold</label><input type="radio" name="type" value="gold" id="gold">
+       <p>Prioritized customer service, early access to job listings, and keycard access to the lounge in our headquarters.</p><br>
+       <label for="business">Business</label><input type="radio" name="type" value="business" id="business"> 
+       <p>Register as a business to be able to post your own "job" listings! Our site will surely find you excellent hirees in no time.</p>
+       
+       
+       <br>
+
   
        <label for="email">Email</label><br>
        <input type="text" placeholder="totally@legal.net" name="email" id="email"> <br> <br>
@@ -70,7 +77,7 @@
                || ($("#type").val() == "")
                ) {
                // replace the alert with something more elegant
-               alert("Invalid: all fields must be completed to register!");
+               alert("Error: all fields must be completed to register.");
                return false;
            }
 

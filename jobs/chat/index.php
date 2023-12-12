@@ -18,6 +18,13 @@
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script>
     var chatLog = "";
+
+    $("#user-message").keyup(function(event) {
+        if (event.keyCode === 13) {
+            sendMessage();
+        }
+    });
+
     function sendMessage() {
     var userMessage = $('#user-message').val();
     

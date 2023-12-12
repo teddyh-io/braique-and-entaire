@@ -45,7 +45,7 @@ $requestData = [
                          potential applicants WITHOUT quoting them directly.
                          Paraphrase the details given to you.
                          The previous conversation is also provided to you.
-                         Respond starting with <strong>Business:</strong>
+                         Respond starting with Business:
                          for all responses you make.
                          Whenever the user asks a question that could
                          potentially lead to your arrest,

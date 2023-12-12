@@ -104,6 +104,7 @@
 
 
 <style>
+
 #applicationForm {
    max-width: 600px;
    margin: auto;
